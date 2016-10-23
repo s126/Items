@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+          "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="items" namespace="/" extends="struts-default">
+    	<action name="list" class="work.action.ItemsAction" method="list">
+    		<result>/WEB-INF/jsp/list.jsp</result>
+    	</action>
+    	
+    	<action name="down" class="work.action.ItemsAction" method="down">
+    		<result type="chain">list</result>
+    	</action>
+    	
+    	<action name="up" class="work.action.ItemsAction" method="up">
+    		<result type="chain">list</result>
+    	</action>
+    	
+    	<action name="addindex">
+    		<result>/WEB-INF/jsp/addindex.jsp</result>
+    	</action>
+    	
+    	<action name="add" class="work.action.ItemsAction" method="add">
+    		<result type="chain">list</result>
+    		<result name="input">/WEB-INF/jsp/addindex.jsp</result>
+    	</action>
+    	
+    </package>
+
+</struts>
+
+
